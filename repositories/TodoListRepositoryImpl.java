@@ -1,10 +1,8 @@
 package repositories;
-
 import entities.TodoList;
 
-public class TodoListRepositoryImp implements TodoListRepository {
+public class TodoListRepositoryImpl implements TodoListRepository {
     public static TodoList[] todos = new TodoList[10];
-
     @Override
     public TodoList[] getAll() {
         return todos;
@@ -77,3 +75,4 @@ public class TodoListRepositoryImp implements TodoListRepository {
         return null;
     }
 }
+

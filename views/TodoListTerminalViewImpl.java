@@ -6,7 +6,7 @@ import services.TodoListService;
 
 import java.util.Scanner;
 
-public class TodoListTerminalViewImpl implements TodoListView {
+public final class TodoListTerminalViewImpl implements TodoListView {
     public  Scanner scanner = new Scanner(System.in);
     private final TodoListService todoListService;
 

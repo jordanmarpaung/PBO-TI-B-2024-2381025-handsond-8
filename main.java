@@ -7,7 +7,7 @@ import views.TodoListView;
 
 import java.util.Scanner;
 
-public class Main {
+public class main {
     public static void main(String[] args) {
         TodoListRepository todoListRepository = new TodoListRepositoryImpl();
         TodoListService todoListService = new TodoListServiceImpl(todoListRepository);
