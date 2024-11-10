@@ -1,18 +1,9 @@
-import repositories.TodoListRepository;
-import repositories.TodoListRepositoryImpl;
-import services.TodoListService;
-import services.TodoListServiceImpl;
-import views.TodoListTerminalViewImpl;
-import views.TodoListView;
+import config.Database;
 
-import java.util.Scanner;
-
-public class main {
-    public static void main(String[] args) {
-        TodoListRepository todoListRepository = new TodoListRepositoryImpl();
-        TodoListService todoListService = new TodoListServiceImpl(todoListRepository);
-        TodoListView todoListView = new TodoListTerminalViewImpl(todoListService);
-        todoListView.run();
+    public class main{
+        public static void main(String[] args) {
+            Database database = new Database("my_jo","root","","localhost","3306");
+            database.setup();
+        }
     }
 
-}
