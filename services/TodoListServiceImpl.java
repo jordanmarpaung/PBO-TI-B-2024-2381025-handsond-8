@@ -37,6 +37,6 @@ public class TodoListServiceImpl implements TodoListService{
         TodoList todoList = new TodoList();
         todoList.setTodo(todo);
         todoList.setId(number);
-        return todoListRepository.edit(todoList.getId());
+        return todoListRepository.edit(todoList);
     }
 }

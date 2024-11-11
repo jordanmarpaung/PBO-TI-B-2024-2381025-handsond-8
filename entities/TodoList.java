@@ -11,7 +11,7 @@ public class TodoList {
         return todo;
     }
 
-    public void setTodo(String todo) {
+    public void setTodo(final String todo) {
         this.todo = todo;
     }
 
@@ -21,6 +21,9 @@ public class TodoList {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public void add(TodoList todoList) {
     }
 }
 

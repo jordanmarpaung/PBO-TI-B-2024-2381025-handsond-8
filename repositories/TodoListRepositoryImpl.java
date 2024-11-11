@@ -1,8 +1,11 @@
 package repositories;
+
 import entities.TodoList;
 
 public class TodoListRepositoryImpl implements TodoListRepository {
-    public static TodoList[] todos = new TodoList[10];
+    public static  TodoList[] todos = new TodoList[10];
+
+
     @Override
     public TodoList[] getAll() {
         return todos;
@@ -50,9 +53,27 @@ public class TodoListRepositoryImpl implements TodoListRepository {
         return isFull;
     }
 
-    @Override
-    public Boolean remove(final Integer number) {
 
+
+    @Override
+    public Boolean remove(Integer number) {
+        if (isSelectedTodoNotValid(number)) {
+            return false;
+        }
+
+        for (int i = number - 1; i < todos.length; i++) {
+            // if todo is the last element
+            if (i == (todos.length - 1)) {
+                todos[i] = null;
+            } else {
+                // replace with the element on the right
+                todos[i] = todos[i + 1];
+            }
+        }
+        return true;
+    }
+
+    private static boolean isSelectedTodoNotValid(final Integer number) {
         // cek if the number is zero or less than zero
         if (number <= 0) {
             return true;
@@ -71,8 +92,10 @@ public class TodoListRepositoryImpl implements TodoListRepository {
     }
 
     @Override
-    public Boolean edit(Integer todolist) {
-        return null;
-    }
+    public Boolean edit(final TodoList todoList) {
+        if (isSelectedTodoNotValid(todoList.getId())) {
+            return false;
+        }
+        todos[todoList.getId() - 1] = todoList;
+        return true;  }
 }
-
